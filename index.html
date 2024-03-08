@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reproductor de música</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="player">
+            <audio id="audio-player"></audio>
+			<div class="song-info">
+				<h2 class="song-title">Bienvenido</h2>
+				<p class="artist-name">Seleccione una canción</p>
+			</div>
+			<div class="controls">
+				<div class="previous"><i class="fas fa-backward"></i></div>
+				<div class="play"><i class="fas fa-play"></i></div>
+				<div class="next" data-src="/audio/me-lo-dicen-seguido-santiago-zorrilla.mp3" data-title="Me lo dicen seguido" data-artist="Santiago Zorrilla"><i class="fas fa-forward"></i></div>
+			</div>
+			<div class="progress">
+				<div class="progress-bar"></div>
+			</div>
+		</div>
+
+        <ol class="playlist">
+            <li>
+                <button class="play-song" data-src="/audio/clv-santiago-zorrilla.mp3" data-title="CLV" data-artist="Santiago Zorrilla">CLV</button>
+            </li>
+            <li>
+                <button class="play-song" data-src="/audio/fondo-verde-santiago-zorrilla.wav" data-title="Fondo verde" data-artist="Santiago Zorrilla">Fondo verde</button>
+            </li>
+            <li>
+                <button class="play-song" data-src="/audio/quiero-calor-santiago-zorrilla.mp3" data-title="Quiero calor" data-artist="Santiago Zorrilla">Quiero calor</button>
+            </li>
+        </ol>
+	</div>
+</body>
+</html>
