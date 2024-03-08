@@ -44,16 +44,25 @@ document.addEventListener('DOMContentLoaded', function() {
         loadSong(currentSongIndex);
     }
 
-    function loadSong(index) {
-        const song = playlistButtons[index];
-        audioPlayer.src = song.dataset.src;
-        audioPlayer.load();
-        audioPlayer.play();
-        isPlaying = true;
-        playButton.innerHTML = '<i class="fas fa-pause"></i>';
-        songTitle.textContent = song.dataset.title;
-        artistName.textContent = song.dataset.artist;
-    }
+function loadSong(index) {
+    const song = playlistButtons[index];
+    const audioSource = song.dataset.src;
+    fetch(audioSource)
+        .then(response => response.blob())
+        .then(blob => {
+            const objectURL = URL.createObjectURL(blob);
+            audioPlayer.src = objectURL;
+            audioPlayer.load();
+            audioPlayer.play();
+            isPlaying = true;
+            playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            songTitle.textContent = song.dataset.title;
+            artistName.textContent = song.dataset.artist;
+        })
+        .catch(error => {
+            console.error('Error loading audio:', error);
+        });
+}
 
     playButton.addEventListener('click', togglePlay);
 
